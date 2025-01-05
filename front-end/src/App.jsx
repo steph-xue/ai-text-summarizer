@@ -1,5 +1,4 @@
-import React, { useState, useRef } from "react";
-import Anthropic from '@anthropic-ai/sdk';
+import { useState, useRef } from "react";
 
 function App() {
 
@@ -46,7 +45,7 @@ async function summarize() {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(messages)  
+      body: JSON.stringify({messages})  
     });
 
     const data = await response.json();
@@ -55,7 +54,9 @@ async function summarize() {
       throw new Error(`Worker error: ${data.error}`)
     }
 
-    setSummary(data)
+    const summaryText = data.summary || "No summary available.";
+    setSummary(summaryText);
+
 
 
   } catch (error) {
