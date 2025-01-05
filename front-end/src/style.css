@@ -1,0 +1,259 @@
+/* Root Variables */
+:root {
+  --font-family: "Onest", sans-serif;
+
+  --font-size-small: 0.8rem;
+  --font-size-medium: 1.2rem;
+  --font-size-large: 2rem;
+  --font-size-xlarge: 3rem;
+
+  --text-color: #49310e;
+  --background-color: #bda483;
+  --input-background-color: #d7c0a2;
+  --button-background-color: #49310e;
+  --button-color: #c7b8ab;
+  --failed-background-color: #c18a8a;
+  --hover-color: #674f2b;
+  --focus-color: #a28866;
+  --slider-thumb-color: #8e6837;
+  --disabled-color: #a7865b;
+}
+
+/* Global Styles */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: var(--font-family);
+  color: var(--text-color);
+  background: var(--background-color);
+}
+
+/* Utility Classes */
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Layout Containers */
+.container {
+  align-items: center;
+  height: 100vh;
+}
+
+main {
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  width: 100%;
+  height: 100%;
+  padding: 0.8em;
+  gap: 0.4em;
+}
+
+section {
+  width: 100%;
+}
+
+/* Header Styles */
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 3em;
+}
+
+.header-text {
+  font-size: var(--font-size-large);
+  font-weight: 900;
+  display: block;
+  text-align: center;
+  padding-top: 0.5em;
+  background-image: linear-gradient(90deg, #6b4427, #472408, #3B2F2F);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientScroll 5s linear infinite;
+}
+
+@keyframes gradientScroll {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 300% 50%;
+  }
+}
+
+.header-title-line-1 {
+  line-height: 1;
+}
+
+.header-title-line-2 {
+  line-height: 0;
+}
+
+.header-image {
+  width: 200px;
+  padding-block: 1em;
+}
+
+/* Form Elements */
+textarea {
+  align-self: center;
+  width: 95%;
+  height: 26vh;
+  flex-grow: 1;
+  min-height: 8.75em;
+  resize: none;
+  border: none;
+  border-radius: 15px;
+  background-color: var(--input-background-color);
+  color: var(--text-color);
+  padding: 0.8em 0.6em;
+  margin-bottom: 0.4em;
+  font-size: var(--font-size-medium);
+  color: var(--text-color);
+}
+
+textarea::placeholder {
+  color: var(--text-color);
+}
+
+/* Controls Section */
+.controls {
+  justify-content: center;
+  gap: 0.4em;
+  width: 100%;
+  align-items: center;
+}
+
+/* Summary Length Controls */
+.summary-length-container {
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0.2em;
+}
+
+.summary-length-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4em;
+  width: 100%;
+}
+
+.summary-length-input {
+  appearance: none;
+  align-self: center;
+  height: 1.2em;
+  width: 30em;
+  border-radius: 15px;
+  background-color: var(--button-background-color);
+}
+
+.summary-length-text {
+  font-size: var(--font-size-medium);
+  color: var(--text-color);
+  padding-top: 0.3em;
+  margin-bottom: 0.2em;
+}
+
+.summary-length-min-label, .summary-length-max-label {
+  font-size: var(--font-size-medium);
+  color: var(--text-color);
+}
+
+/* Buttons */
+.button {
+  font-family: inherit;
+  background-color: var(--button-background-color);
+  color: var(--button-color);
+  border: none;
+  border-radius: 50px;
+  padding: 1.5em 1em;
+  height: 2.5em;
+  display: flex;
+  align-items: center;
+  align-self: center;
+  justify-content: center;
+  width: 15em;
+  transition: transform 0.3s ease-in-out;
+}
+
+.button:hover {
+  transform: scale(1.05);
+  background-color: var(--hover-color);
+}
+
+.summarize-button  {
+  margin-bottom: 2em;
+}
+
+.copy-button {
+  margin-top: 0.5em;
+}
+
+.clear-button {
+  margin-top: 0;
+}
+
+.loading-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+  margin-top: 2em;
+}
+
+.spinner-image {
+  width: 10em;
+  align-self: center;
+}
+
+.loading-text {
+  font-size: var(--font-size-medium);
+  text-align: center;
+}
+
+.error-message {
+  font-size: var(--font-size-medium);
+  text-align: center;
+  align-self: center;
+  padding-top: 3em;
+  background-color: var(--failed-background-color);
+  border-radius: 25px;
+  height: 10em;
+  width: 95%;
+  margin-bottom: 2em;
+}
+
+/* Focus States */
+textarea:focus,
+input[type="range"]:focus,
+.button:focus {
+  outline: 3px solid var(--focus-color);
+  box-shadow: var(--focus-color) 0px 8px 24px;
+}
+
+/* Slider Thumb Styles */
+/* WebKit (Chrome, Safari, newer versions of Edge) */
+.summary-length-input::-webkit-slider-thumb {
+  appearance: none;
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 50%;
+  background: var(--slider-thumb-color);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.summary-length-input:disabled::-webkit-slider-thumb {
+  background-color: var(--disabled-color);
+  cursor: not-allowed;
+}
+
