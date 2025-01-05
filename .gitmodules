@@ -1,3 +1,7 @@
 [submodule "ai-text-summarizer"]
 	path = ai-text-summarizer
 	url = git@github.com:steph-xue/ai-text-summarizer.git
+
+[submodule "backend-worker"]
+    path = backend-worker
+    url = https://github.com/steph-xue/ai-text-summarizer/backend-worker.git
