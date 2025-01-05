@@ -1,0 +1,3 @@
+[submodule "ai-text-summarizer"]
+	path = ai-text-summarizer
+	url = git@github.com:steph-xue/ai-text-summarizer.git
