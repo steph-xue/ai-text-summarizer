@@ -54,7 +54,7 @@ async function summarize() {
       throw new Error(`Worker error: ${data.error}`)
     }
 
-    const summaryText = data.summary || "No summary available.";
+    const summaryText = data.summary;
     setSummary(summaryText);
 
 
